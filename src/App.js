@@ -63,7 +63,7 @@ function App() {
 
   function followUser(id, userToFollow) {
     axios
-      .post(`{prefix}api/follow`, {
+      .post(`${prefix}api/follow`, {
         currentUserId: id,
         userToFollow: userToFollow
       })

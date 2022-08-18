@@ -12,7 +12,7 @@ var url =
   "pageSize=15&" +
   "apiKey=" +
   newsapikey
-  
+
 // this component loads when there is an active user
 function Home({ user, logout, followUser, followUsers, tweets, newtweet }) {
   const [news, setNews] = useState()
@@ -30,9 +30,9 @@ function Home({ user, logout, followUser, followUsers, tweets, newtweet }) {
       })
   }
 
-  function refreshPage() {
-    window.location.reload()
-  }
+  // function refreshPage() {
+  //   window.location.reload()
+  // }
 
   useEffect(() => {
     getNews()
