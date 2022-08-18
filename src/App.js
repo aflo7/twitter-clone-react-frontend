@@ -5,8 +5,6 @@ import Home from "./components/Home"
 import Guest from "./components/Guest"
 import axios from "axios"
 
-const prefix = process.env.REACT_APP_PREFIX
-
 function App() {
   const [token, setToken] = useState(null)
   const [currentUserInfo, setCurrentUserInfo] = useState()
@@ -24,7 +22,7 @@ function App() {
       id: id
     }
 
-    axios.post(`${prefix}api/tweet`, obj)
+    axios.post(`${process.env.REACT_APP_PREFIX}api/tweet`, obj)
     .then(function (response) {
       getTweets(id)
     })
@@ -37,7 +35,7 @@ function App() {
   // get an array of users you aren't following
   function whoToFollow(id) {
     axios
-      .get(`${prefix}api/users/whotofollow/` + id)
+      .get(`${process.env.REACT_APP_PREFIX}api/users/whotofollow/` + id)
       .then(function (response) {
         setFollowUsers(response.data)
       })
@@ -52,7 +50,7 @@ function App() {
       return false
     }
     axios
-      .get(`${prefix}api/tweet/selected/` + id)
+      .get(`${process.env.REACT_APP_PREFIX}api/tweet/selected/` + id)
       .then(function (response) {
         setTweets(response.data)
       })
@@ -63,7 +61,7 @@ function App() {
 
   function followUser(id, userToFollow) {
     axios
-      .post(`${prefix}api/follow`, {
+      .post(`${process.env.REACT_APP_PREFIX}api/follow`, {
         currentUserId: id,
         userToFollow: userToFollow
       })
@@ -84,7 +82,7 @@ function App() {
     var url = process.env.PREFIX
     console.log(url)
     axios
-      .post(`${prefix}api/login`, {
+      .post(`${process.env.REACT_APP_PREFIX}api/login`, {
         username: username,
         password: password
       })

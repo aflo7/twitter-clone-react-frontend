@@ -2,17 +2,6 @@ import React, { useState, useEffect } from "react"
 import "../styles/home.css"
 import axios from "axios"
 
-const newsapikey = process.env.REACT_APP_NEWS_KEY
-
-var url =
-  "https://newsapi.org/v2/everything?" +
-  "q=World&" +
-  "from=2022-08-17&" +
-  "sortBy=popularity&" +
-  "pageSize=15&" +
-  "apiKey=" +
-  newsapikey
-
 // this component loads when there is an active user
 function Home({ user, logout, followUser, followUsers, tweets, newtweet }) {
   const [news, setNews] = useState()
@@ -20,13 +9,20 @@ function Home({ user, logout, followUser, followUsers, tweets, newtweet }) {
 
   function getNews() {
     axios
-      .get(url)
+      .get(
+        "https://newsapi.org/v2/everything?" +
+          "q=Apple&" +
+          "from=2022-08-17&" +
+          "sortBy=popularity&" +
+          "pageSize=15&" +
+          "apiKey=" +
+          process.env.REACT_APP_NEWS_KEY
+      )
       .then(function (response) {
-        // console.log(response.data.articles)
         setNews(response.data.articles)
       })
       .catch(function (error) {
-        console.log(error)
+        console.log('404')
       })
   }
 
@@ -35,7 +31,7 @@ function Home({ user, logout, followUser, followUsers, tweets, newtweet }) {
   // }
 
   useEffect(() => {
-    getNews()
+    // getNews()
   }, [])
 
   return (
@@ -43,9 +39,7 @@ function Home({ user, logout, followUser, followUsers, tweets, newtweet }) {
       <div className="content">
         <div className="left-sidebar">
           <div className="topleftsidebar">
-            <div className="home-left-button">
-              Home
-            </div>
+            <div className="home-left-button">Home</div>
             <div className="notifications-left-button">Notifications</div>
           </div>
 
