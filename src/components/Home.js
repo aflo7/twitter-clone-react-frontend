@@ -22,7 +22,7 @@ function Home({ user, logout, followUser, followUsers, tweets, newtweet }) {
         setNews(response.data.articles)
       })
       .catch(function (error) {
-        console.log('404')
+        console.log("404")
       })
   }
 
@@ -38,10 +38,10 @@ function Home({ user, logout, followUser, followUsers, tweets, newtweet }) {
     <div className="homewrapper">
       <div className="content">
         <div className="left-sidebar">
-          <div className="topleftsidebar">
+          {/* <div className="topleftsidebar">
             <div className="home-left-button">Home</div>
             <div className="notifications-left-button">Notifications</div>
-          </div>
+          </div> */}
 
           <div className="bottomleftsidebar">
             <div className="profilewrapper">
@@ -58,26 +58,29 @@ function Home({ user, logout, followUser, followUsers, tweets, newtweet }) {
             </div>
           </div>
         </div>
+
         <div className="middle-section">
           <div className="newtweetwrapper">
             <div className="newtweettitle">Tweet</div>
-            <input
-              onChange={(e) => setTweetInMiddle(e.target.value)}
-              className="newtweettextfield"
-              placeholder="whats happening?"
-            />
-            <button
-              className="newtweetbtn"
-              onClick={() => newtweet(tweetInMiddle, user.username, user._id)}
-            >
-              Tweet
-            </button>
+            <div className="newtweetbottomwrapper">
+              <input
+                onChange={(e) => setTweetInMiddle(e.target.value)}
+                className="newtweettextfield"
+                placeholder="whats happening?"
+              />
+              <button
+                className="newtweetbtn"
+                onClick={() => newtweet(tweetInMiddle, user.username, user._id)}
+              >
+                {">"}
+              </button>
+            </div>
           </div>
 
           <div className="alltweetwrapper">
-            <div className="alltweettitle">All tweets</div>
+            <div className="alltweettitle">Feed</div>
 
-            <div>
+            <div className="mapalltweetwrap">
               {tweets
                 ? tweets.map((element, i) => {
                     return (
@@ -119,7 +122,11 @@ function Home({ user, logout, followUser, followUsers, tweets, newtweet }) {
               <div className="usersyouarefollowing">
                 {user
                   ? user.following.map((name, i) => {
-                      return <div key={i}>{name}</div>
+                      return (
+                        <div className="individualuseryouarefollowing" key={i}>
+                          {name}{" "}
+                        </div>
+                      )
                     })
                   : null}
               </div>
