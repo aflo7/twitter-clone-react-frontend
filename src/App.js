@@ -1,9 +1,12 @@
-// import logo from "./logo.svg"
+
 import "./App.css"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Home from "./components/Home"
 import Guest from "./components/Guest"
 import axios from "axios"
+
+const prefix = process.env.REACT_APP_PREFIX
+
 function App() {
   const [token, setToken] = useState(null)
   const [currentUserInfo, setCurrentUserInfo] = useState()
@@ -21,7 +24,7 @@ function App() {
       id: id
     }
 
-    axios.post('http://localhost:3000/api/tweet', obj)
+    axios.post(`${prefix}api/tweet`, obj)
     .then(function (response) {
       getTweets(id)
     })
@@ -34,7 +37,7 @@ function App() {
   // get an array of users you aren't following
   function whoToFollow(id) {
     axios
-      .get("http://localhost:3000/api/users/whotofollow/" + id)
+      .get(`${prefix}api/users/whotofollow/` + id)
       .then(function (response) {
         setFollowUsers(response.data)
       })
@@ -49,7 +52,7 @@ function App() {
       return false
     }
     axios
-      .get("http://localhost:3000/api/tweet/selected/" + id)
+      .get(`${prefix}api/tweet/selected/` + id)
       .then(function (response) {
         setTweets(response.data)
       })
@@ -60,7 +63,7 @@ function App() {
 
   function followUser(id, userToFollow) {
     axios
-      .post("http://localhost:3000/api/follow", {
+      .post(`{prefix}api/follow`, {
         currentUserId: id,
         userToFollow: userToFollow
       })
@@ -78,8 +81,10 @@ function App() {
     if (!username || !password) {
       return
     }
+    var url = process.env.PREFIX
+    console.log(url)
     axios
-      .post("http://localhost:3000/api/login", {
+      .post(`${prefix}api/login`, {
         username: username,
         password: password
       })

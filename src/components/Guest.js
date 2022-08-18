@@ -4,6 +4,9 @@ import { useState, useEffect } from "react"
 import "../styles/login-modal.css"
 import "../styles/signup-modal.css"
 import axios from "axios"
+const prefix = process.env.REACT_APP_PREFIX
+
+
 function Guest({ login }) {
   const [loginUsername, setLoginUsername] = useState(null)
   const [loginPassword, setLoginPassword] = useState(null)
@@ -33,7 +36,7 @@ function Guest({ login }) {
       return
     }
     axios
-      .post("http://localhost:3000/api/signup", {
+      .post(`${prefix}api/signup`, {
         username: username,
         password: password
       })

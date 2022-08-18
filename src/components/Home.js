@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
 import "../styles/home.css"
 import axios from "axios"
-const newsapikey = "6ebac5b342f7435b978adc166b037201"
+
+const newsapikey = process.env.REACT_APP_NEWS_KEY
 
 var url =
   "https://newsapi.org/v2/everything?" +
@@ -11,6 +12,7 @@ var url =
   "pageSize=15&" +
   "apiKey=" +
   newsapikey
+  
 // this component loads when there is an active user
 function Home({ user, logout, followUser, followUsers, tweets, newtweet }) {
   const [news, setNews] = useState()
@@ -33,7 +35,7 @@ function Home({ user, logout, followUser, followUsers, tweets, newtweet }) {
   }
 
   useEffect(() => {
-    // getNews()
+    getNews()
   }, [])
 
   return (
