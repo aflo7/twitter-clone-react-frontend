@@ -1,0 +1,265 @@
+.homewrapper {
+background-color: black;
+color: white;
+height: 100vh;
+
+}
+
+.left-sidebar {
+  background-color: gray;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profilewrapper {
+  display: flex;
+  flex-direction: row; 
+  padding: 5px;
+  justify-content: space-between;
+
+}
+
+.leftprofileinner {
+  display: flex;
+  flex-direction: row;
+}
+.profileimg {
+  border: 1px solid white;
+background-image: url('../images/default-img.jpeg');
+width: 40px;
+height: 40px;
+background-size: cover;
+background-repeat: no-repeat;
+
+  border-radius: 50%;
+
+ 
+}
+
+.bottomleftsidebar {
+  border: 1px solid black;
+}
+
+.right-sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.news-wrapper {
+  border: 1px solid gold;
+  height: 50%;
+  overflow-y:auto;
+}
+
+.friends-who-to-follow-wrapper {
+  border: 1px solid gold;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-sidebar {
+  background-color: gray;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+}
+.middle-section {
+  width: 50%;
+  background-color: darkgray;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: left; */
+  /* align-items: left; */
+}
+
+.newtweetwrapper {
+border-bottom: 1px solid black;
+align-items: left;
+display: flex;
+flex-direction: column;
+}
+
+.newtweettitle {
+  text-align: left;
+
+}
+
+.newtweetbtn {
+  padding: 0px;
+  margin: 0px;
+  padding: 5px;
+
+}
+.profileusername {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 10px;
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: left;
+  width: 50%;
+}
+.alltweetwrapper {
+
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  border: 1px solid red;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.article-wrapper {
+  padding: 10px;
+  border-bottom: 1px solid black;
+  font-size: 10pt;
+}
+.article-title {
+  font-weight: bold;
+  text-align: justify;
+  color: black;
+
+}
+
+.article-text {
+  text-align: justify;
+}
+
+.userstofollow {
+  /* border-top: 1px solid black; */
+  text-align: left;
+}
+
+
+
+.followingtitle {
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+
+.profilelogout {
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.profilelogout:hover {
+  color: red;
+}
+
+.followuserindividualwrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 5px;
+  /* background-color: white; */
+  
+  font-size: 14pt;
+}
+
+.followuserplussign {
+  padding: 5px;
+  font-size: 14pt;
+  width: fit-content;
+  margin: 0;
+}
+.alltweettitle {
+  text-align: left;
+}
+.individualtweetwrapper {
+  background-color: royalblue;
+  color: white;
+  border-bottom: 1px solid white;
+  text-align: left;
+  padding: 5px;
+  font-size: 14pt;
+}
+
+.individualtweettext {
+font-weight: bold;
+}
+
+.individualtweetauthor {
+font-size: 12pt;
+}
+
+.individualtweetlikes {
+  font-size: 12pt;
+  text-align: right;
+}
+
+.whotofollowwrapper {
+  overflow-y:auto;
+  height: 50%;
+}
+
+.followingwrapper {
+  overflow-y:auto;
+  height: 50%;
+}
+
+.whotofollowtitle {
+  border-top: 1px solid black;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  background-color: red;
+
+
+}
+.userstofollow {
+  border: 1px solid black;
+}
+
+.followuserindividualwrapper {
+  font-size: 12pt;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.home-left-button {
+  padding: 15px;
+  border: 1px solid black;
+  margin: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.home-left-button:hover {
+  padding: 15px;
+  background-color: white;
+  color: black;
+}
+
+.notifications-left-button {
+  padding: 15px;
+  border: 1px solid black;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+
+
+}
+
+.notifications-left-button:hover {
+  background-color: white;
+  color: black;
+}
+@media only screen and (max-width: 950px) {
+  .profileusername {
+    height: 40px;
+    line-height: 40px;
+    display: none;
+  }
+}
